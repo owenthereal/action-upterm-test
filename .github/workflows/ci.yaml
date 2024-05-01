@@ -1,0 +1,24 @@
+name: CI
+on: [push]
+jobs:
+  build:
+    strategy:
+      fail-fast: true
+      matrix:
+        #os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest]
+        os: [ubuntu-latest, ubuntu-24.04-arm]
+    runs-on: ${{ matrix.os }}
+    steps:
+      # - name: Setup tmate session
+      #   uses: mxschmitt/action-tmate@v3
+      # - run: |
+      #     sudo apt update
+      #     sudo apt install -y openssh-client xz-utils
+      - name: Setup upterm session
+        env:
+          ACTIONS_RUNNER_DEBUG: true
+          ACTIONS_STEP_DEBUG: true
+        uses: owenthereal/action-upterm@main
+        with:
+          limit-access-to-actor: true
+          #limit-access-to-users: llamaonduty
