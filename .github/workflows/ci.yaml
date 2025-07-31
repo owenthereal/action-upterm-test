@@ -18,7 +18,7 @@ jobs:
         env:
           ACTIONS_RUNNER_DEBUG: true
           ACTIONS_STEP_DEBUG: true
-        uses: owenthereal/action-upterm@main
+        uses: owenthereal/action-upterm@refactor
         with:
           limit-access-to-actor: true
           #limit-access-to-users: llamaonduty
